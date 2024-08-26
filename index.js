@@ -17,18 +17,18 @@ server.use(json())
 server.use(urlencoded({ extended: false }))
 server.use(cors())
 
-connectDB().then(() => {
+connectDB()
 
-    server.get("/", (req, res) => {
+server.get("/", (req, res) => {
 
-        res.json({
-            "Server Status:": "Ok",
-            "Para mais informações sobre rotas consulte a documentação em": "https://github.com/Riick2706/pim_museu_backend"
-        })
+    res.json({
+        "Server Status:": "Ok",
+        "Para mais informações sobre rotas consulte a documentação em": "https://github.com/Riick2706/pim_museu_backend"
     })
-    server.use('/', routes)
-
-
-    server.listen(PORT, () => console.log("SERVER RUNNING AT ", PORT))
-
 })
+server.use('/', routes)
+
+
+server.listen(PORT, () => console.log("SERVER RUNNING AT ", PORT))
+
+
